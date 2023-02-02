@@ -34,29 +34,29 @@ function rowColour()
 
 rowColour()
 
-// save button event listener
+// Save button event listener
 $('.container').on('click', '.saveBtn', function (event)
 {
 
-	// referencing data-index
+	// Referencing data-index
 	let index = $(this).attr('data-index');
 
-	// referencing time-block with the same data-index as the clicked saveBtn in the current loop(in the same row)
+	// Referencing time-block with the same data-index as the clicked saveBtn in the current loop(in the same row)
 	let timeBlock = $(`.time-block[data-index="${index}"]`);
 
-	// referencing textarea with the same data-index as the clicked saveBtn in the current loop
+	// Referencing textarea with the same data-index as the clicked saveBtn in the current loop
 	let taskInput = $(`textarea[data-index="${index}"]`).val();
 
-	// save to local here
+	// Save to local here
 
-	// if none of the textarea input assigned to the index of time-block in the locally stored object: create an object.
+	// If none of the textarea input assigned to the index of time-block in the locally stored object: create an object.
 	if (!storedTasks[index])
 	{
 		storedTasks[index] = {
 			time: timeBlock,
 			task: taskInput,
 		};
-		// else update task text in the object for the corresponding time-block index
+		// Else update task text in the object for the corresponding time-block index
 	}
 	else
 	{
@@ -64,7 +64,7 @@ $('.container').on('click', '.saveBtn', function (event)
 		storedTasks[index].task = taskInput;
 	}
 
-	// pass the object above to the storage
+	// Pass the object above to the storage
 	localStorage.setItem('storedTasks', JSON.stringify(storedTasks));
 
 	// Successful save
@@ -83,17 +83,17 @@ $('.container').on('click', '.saveBtn', function (event)
 
 
 
-// get the object in the storage or if doesn't exist return empty array
+// Get the object in the storage or if doesn't exist return empty array
 let storedTasks = JSON.parse(localStorage.getItem('storedTasks')) || [];
 
-// interate throgh each textarea
+// Interate throgh each textarea
 $('textarea').each(function ()
 {
 
-	// specify data-index variable
+	// Specify data-index variable
 	let index = $(this).attr('data-index');
 
-	// if no input for task found for this particular time-block, empty value
+	// If no input for task found for this particular time-block, empty value
 	if (storedTasks[index] === null || storedTasks[index] === undefined)
 	{
 		$(this).val('');
@@ -101,7 +101,7 @@ $('textarea').each(function ()
 	else
 	{
 
-		// display value of task in the textarea
+		// Display value of task in the textarea
 		$(this).val(storedTasks[index].task);
 	}
 });
