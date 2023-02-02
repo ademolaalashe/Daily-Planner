@@ -44,3 +44,7 @@ function rowColour() {
 }
 
 rowColour()
+
+// setting new submission 
+localStorage.setItem("user", JSON.stringify(user));
+
