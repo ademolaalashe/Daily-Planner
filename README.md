@@ -12,6 +12,10 @@ This is a calendar app that runs in the browser and features a dynamically updat
 This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
 
+![FDR](https://github.com/ademolaalashe/Daily-Planner/blob/main/images/daily-planner.png)
+
+
+
 
 Links:
 https://github.com/ademolaalashe/Daily-Planner
